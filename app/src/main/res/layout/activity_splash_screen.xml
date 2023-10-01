@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bckcolour"
+    android:gravity="center"
+    tools:context=".splash_screen">
+    <ImageView
+        android:id="@+id/sImg"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/suitcasesplash"
+        android:layout_marginBottom="25dp"
+        />
+
+    <TextView
+        android:id="@+id/txt_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="20dp"
+        android:text="Welcome My Application Thank you !!!"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "478887715455",
+    "project_id": "suicasedesign",
+    "storage_bucket": "suicasedesign.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478887715455:android:257a132e1e31a91ff3554a",
+        "android_client_info": {
+          "package_name": "com.example.suicasedesign"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOwttDI0k3GgorxW31qz8aPzy81NWq3Zc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
