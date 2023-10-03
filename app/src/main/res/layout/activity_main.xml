@@ -5,13 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/img"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
-        android:background="#D0DDD1"
+        android:background="#43A047"
         android:orientation="vertical">
 
         <LinearLayout
@@ -37,9 +38,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:baselineAligned="false"
-                android:text="Suitcase Design"
+                android:text="Suitcase"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView

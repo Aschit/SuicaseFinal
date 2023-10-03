@@ -40,11 +40,12 @@ public class login extends AppCompatActivity {
 
         forgotPassword.setOnClickListener(this::startPasswordRecoveryProcess);
         SignupBtn.setOnClickListener(this::startSignUpActivity);
-        LoginBtn.setOnClickListener(this::byPass); // todo: change this to login
+        LoginBtn.setOnClickListener(this::login);
     }
 
     private void byPass(View view) {
         startActivity( new Intent(getApplicationContext(), MainActivity.class));
+
     }
 
     private void login(View view) {

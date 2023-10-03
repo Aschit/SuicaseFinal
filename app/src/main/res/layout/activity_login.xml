@@ -6,19 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="#C0CA33"
+    android:background="@drawable/img"
     android:gravity="center"
     tools:context=".login">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:background="#FFB300"
         android:layout_margin="5dp"
+        android:background="#4D8F47"
+        android:fontFamily="sans-serif"
+        android:text="Welcome to Login Page"
+        android:textColor="@color/black"
         android:textColorHighlight="@color/black"
-        android:text="Welcome to Login Page"/>
+        android:textSize="30dp" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -39,7 +40,7 @@
         android:background="@drawable/shapemail"
         android:drawableLeft="@drawable/baseline_mark_email_read_24"
         android:drawablePadding="10dp"
-        android:hint="Email"
+        android:hint=" Enter your Gmail"
         android:inputType="text"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
@@ -54,7 +55,7 @@
         android:background="@drawable/shapemail"
         android:drawableLeft="@drawable/baseline_lock_24"
         android:drawablePadding="10dp"
-        android:hint="Password"
+        android:hint=" Enter Your Password"
         android:textColor="@color/white"
         android:inputType="numberPassword"
         android:textColorHint="@color/white"
@@ -103,6 +104,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
+        android:textSize="20dp"
         android:layout_marginTop="0dp"
         android:background="@drawable/shapelogin"/>
 
@@ -116,6 +118,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
+        android:textSize="20dp"
         android:layout_marginTop="0dp"
         android:background="@drawable/shapesignup"
         android:textColor="@color/white"/>

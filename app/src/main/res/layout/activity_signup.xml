@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#AB7CB342"
-    android:padding="20dp"
+    android:background="@drawable/img"
+    android:padding="10dp"
      android:gravity="center"
     tools:context=".signup">
 
@@ -14,11 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome to SignIn Page"
-        android:background="@drawable/shapesignup"
+        android:background="#C0CA33"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="30dp"
-        android:layout_margin="10dp"
 
 
         />
@@ -42,7 +41,7 @@
         android:background="@drawable/shapemail"
         android:drawableLeft="@drawable/baseline_drive_file_rename_outline_24"
         android:drawablePadding="10dp"
-        android:hint="Name"
+        android:hint="Enter Your Name:"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
 
@@ -57,7 +56,7 @@
         android:background="@drawable/shapemail"
         android:drawableLeft="@drawable/baseline_mark_email_read_24"
         android:drawablePadding="10dp"
-        android:hint="Email"
+        android:hint="Enter Your Gmail:"
         android:textColor="@color/white"
         android:inputType="text"
         android:textColorHint="@color/white"
@@ -71,7 +70,7 @@
         android:background="@drawable/shapemail"
         android:drawableLeft="@drawable/baseline_lock_24"
         android:drawablePadding="10dp"
-        android:hint="Password"
+        android:hint=" Enter Your Password:"
         android:textColor="@color/white"
         android:inputType="numberPassword"
         android:textColorHint="@color/white"
@@ -85,7 +84,7 @@
         android:background="@drawable/shapemail"
         android:drawableLeft="@drawable/baseline_lock_24"
         android:drawablePadding="10dp"
-        android:hint="Confirm Password"
+        android:hint="Confirm Password:"
         android:textColor="@color/white"
         android:inputType="numberPassword"
         android:textColorHint="@color/white"
@@ -108,16 +107,16 @@
             android:buttonTint="@color/white"
             android:checked="true"/>
         <TextView
-            android:id="@+id/forgotpassword"
+            android:id="@+id/signin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Forget Password"
+            android:text=" SignIn below? "
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="0dp"
-            android:textColor="@color/white"
-            android:drawableLeft="@drawable/baseline_lock_24"
+            android:textColor="#E53935"
+            android:drawableLeft="@drawable/baseline_person_add_24"
             android:drawablePadding="6dp"
             android:padding="4dp"/>
 
@@ -132,6 +131,7 @@
         android:shadowColor="@android:color/transparent"
         android:padding="15dp"
         android:layout_marginRight="10dp"
+        android:textSize="15dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="0dp"
@@ -143,10 +143,11 @@
         android:layout_height="wrap_content"
         android:text="Sign In"
         android:shadowColor="@android:color/transparent"
-        android:padding="15dp"
+        android:padding="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
+        android:textSize="15dp"
         android:layout_marginTop="0dp"
         android:background="@drawable/shapesignup"
         android:textColor="@color/white"/>
