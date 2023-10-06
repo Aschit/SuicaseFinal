@@ -16,6 +16,8 @@ import android.widget.Toast;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class edit_items extends AppCompatActivity {
+
+    //Constants are defined for various data keys that are used to pass item details between activities via an Intent.
     public static final String ID = "id";
     public static final String NAME = "name";
     public static final String PRICE = "price";
@@ -23,18 +25,21 @@ public class edit_items extends AppCompatActivity {
     public static final String IMAGE = "image";
     public static final String IS_PURCHASED = "purchased";
 
-    private DatabaseHelper databaseHelper;
+    private DatabaseHelper databaseHelper; //database operations
 
     private EditText editTextName;
     private EditText editTextPrice;
     private EditText editTextDescription;
     private CircleImageView imageView;
 
-    private Uri imageUri;
-    private int id;
-    private boolean isPurchased;
+    private Uri imageUri; //A variable to store the URI of the selected or edited image.
+    private int id;  //An integer variable to store the ID of the item being edited.
+    private boolean isPurchased;  //A boolean variable to store the purchase status of the item being edited.
 
     public static Intent getIntent(Context context, Item item) {
+
+        //A static method used to create an Intent for starting this activity with item details as extras.
+        // This is typically used to launch this activity for editing an existing item.
         Intent intent = new Intent(context, edit_items.class);
         intent.putExtra(ID, item.getId());
         intent.putExtra(NAME, item.getName());
@@ -51,6 +56,11 @@ public class edit_items extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_items);
+
+        //This method is called when the activity is created.
+        //It initializes the UI components, retrieves item details from the incoming Intent,
+        // and populates the UI fields with the item's existing data.
+        //It also sets click listeners for the image view and the "Save" button.
         databaseHelper = new DatabaseHelper(this);
 
         Bundle bundle = getIntent().getExtras();
@@ -85,9 +95,15 @@ public class edit_items extends AppCompatActivity {
         buttonEditItem.setOnClickListener(this::saveItem);
     }
 
+    //image selection process
+
     private void pickImage(View view) {
         ImagePickerUtility.pickImage(view, edit_items.this);
     }
+
+    //This method is called when the "Save" button is clicked to update the item's details.
+    //It retrieves the edited data from the input fields, performs validation, and then calls the update method of the DatabaseHelper to update the item in the database.
+    //It displays a toast message to indicate success or failure and then returns to the main activity.
 
     private void saveItem(View view) {
         String name = editTextName.getText().toString();
@@ -133,6 +149,9 @@ public class edit_items extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
+        //This method is called when the image selection activity returns a result.
+        //It updates the imageUri with the selected image's URI and displays the image in the image view
+
         if (data != null) {
             imageUri = data.getData();
             imageView.setImageURI(imageUri);
@@ -146,5 +165,7 @@ public class edit_items extends AppCompatActivity {
         super.finish();
     }
 }
+
+//An override method that calls the superclass finish method.
 
 

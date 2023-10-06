@@ -9,7 +9,13 @@ import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 import androidx.annotation.Nullable;
 
+// methods of database creation and management subclass of sqlite open helper.
+
 public class DatabaseHelper extends SQLiteOpenHelper {
+
+    //Constants are defined for the database name, table name, and database version.
+    //Constants are defined for each column in the "ITEMS_INFO_TABLE."
+    // These constants represent column names in the table.
 
     public static final String DB_NAME="ITEMS_INFO_DB";
     public static final String TABLE_NAME="ITEMS_INFO_TABLE";
@@ -28,6 +34,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
+    //This method is called when the database is created.
+    //It defines the SQL query to create the "ITEMS_INFO_TABLE" table with the specified columns.
     public void onCreate(SQLiteDatabase db) {
         String sqlQuery = "CREATE TABLE " + TABLE_NAME + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -39,6 +47,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sqlQuery);
     }
 
+    //This method is called when the database needs to be upgraded, when the database version is increased.
+    //It drops the existing table if it exists and calls onCreate to recreate the table.
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String sqlQuery = "DROP TABLE IF EXISTS " + TABLE_NAME;
@@ -46,10 +57,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    //This method allows executing custom SQL queries on the database.
+    //It returns a Cursor that can be used to retrieve query results.
+
     public Cursor queryData(String sqlQuery){
         SQLiteDatabase database = getWritableDatabase();
         return database.rawQuery(sqlQuery, null);
     }
+    //This method inserts a new row into the "ITEMS_INFO_TABLE" table with the provided item information.
+    //It uses a prepared statement to bind the values to the columns and executes.
+    //It returns true if the data is successful, false otherwise.
 
     public Boolean insert(
             String name,
@@ -72,6 +89,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    //This method retrieves a specific item from the table by its ID.
+    //It constructs a SQL query with a WHERE clause to select the item with the given ID.
+
     public Cursor getElementById(int id) {
         SQLiteDatabase database = getWritableDatabase();
 
@@ -81,12 +101,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[]{String.valueOf(id)}
         );
     }
+    //his method retrieves all items from the table.
+    //It constructs a SQL query to select all rows from the table.
 
     public Cursor getAll() {
         SQLiteDatabase database = getReadableDatabase();
         String sqlQuery = "SELECT * FROM " + TABLE_NAME;
         return database.rawQuery(sqlQuery, null);
     }
+    //This method updates an existing item in the table based on its ID.
+    //It constructs a ContentValues object with the updated values and uses the update method of SQLiteDatabase to perform the update.
+    //It returns true if the update is successful, false otherwise.
 
     public Boolean update(
             int id,
@@ -115,5 +140,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 TABLE_NAME,
                 COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)});
+
     }
+    //This method deletes an item from the table based on its ID.
+    //It uses the delete method of SQLiteDatabase to perform the deletion.
 }

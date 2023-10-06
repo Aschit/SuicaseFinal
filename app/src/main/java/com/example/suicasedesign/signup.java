@@ -16,14 +16,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class signup extends AppCompatActivity {
-    EditText Name,Email,Password,cPassword;
-    Button Signup,Signin;
-    FirebaseAuth firebaseAuth;
+    EditText Name,Email,Password,cPassword;  //EditText fields to input user registration information such as name, email, password, and password confirmation.
+    Button Signup,Signin; // Buttons for user registration and navigation to the login screen.
+    FirebaseAuth firebaseAuth; // Firebase Authentication to handle user registration.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //his method is called when the activity is created.
         setContentView(R.layout.activity_signup);
+
+        //It calls the findId method to initialize UI elements and set up click listeners.
 
         findId();
     }
@@ -76,6 +80,16 @@ public class signup extends AppCompatActivity {
                                 }
                             });
                 }
+                //This method initializes UI elements and sets up click listeners for buttons.
+                //It sets click listeners for the "Signin" button to navigate to the login screen and the "Signup" button to register a new user.
+                //Inside the "Signup" button's click listener, it performs the following tasks:
+                //Retrieves user-entered data from the EditText fields for name, email, password, and password confirmation.
+                //Checks if any of the fields are empty and displays a toast message if they are.
+                //Compares the entered password and password confirmation to ensure they match.
+                //If the passwords match, it uses Firebase Authentication to create a new user account with the provided email and password.
+                //It adds an OnCompleteListener to handle the registration task's result.
+                //If registration is successful, it navigates to the login screen (login activity) and displays a success toast message.
+                //If registration fails, it displays a failure toast message.
             }
         });
     }

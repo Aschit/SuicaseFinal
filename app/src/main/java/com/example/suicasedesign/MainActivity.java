@@ -24,12 +24,12 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    FloatingActionButton fab;
-    private ArrayList<Item> items;
-    private DatabaseHelper databaseHelper;
-    private RecyclerView itemRecyclerView;
-    private ItemsAdapter itemsAdapter;
-    private NavigationView navigationView;
+    FloatingActionButton fab;  // A floating action button used to add new items.
+    private ArrayList<Item> items; //A list to store items retrieved from a database.
+    private DatabaseHelper databaseHelper; //database operations
+    private RecyclerView itemRecyclerView; // RecyclerView used to display the list of items.
+    private ItemsAdapter itemsAdapter; //An adapter to connect the RecyclerView with items
+    private NavigationView navigationView;// A navigation view fordrawer menu.
 
 
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView=findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {   //to handle navigation menu item clicks.
 
                 int id = item.getItemId();
                 if (id == R.id.item_home) {
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         // item touch helper setup
         setupItemTouchHelper();
 
-        // initialize
+        // It also initializes the FAB (Floating Action Button) for adding new items.
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> startActivity(add_items.getIntent(getApplicationContext())));
 
@@ -95,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
             }
+
+            //This method sets up an ItemTouchHelper to handle swipe gestures on RecyclerView items.
+            //It allows swiping items to the left for deletion and swiping items to the right for marking them as purchased.
+            //When an item is swiped, it updates the item's status in the database and notifies the adapter of the change.
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
@@ -137,12 +141,17 @@ public class MainActivity extends AppCompatActivity {
         itemTouchHelper.attachToRecyclerView(itemRecyclerView);
     }
 
+    //This method is called when the activity starts or resumes.
+    //It calls the retrieveData method to populate the items list with data from the database
     @Override
     protected void onStart() {
         super.onStart();
         retrieveData();
     }
 
+    //This method queries the database using the getAll method of DatabaseHelper to retrieve all items.
+    //It clears the items list and adds items retrieved from the database.
+    //It updates the RecyclerView adapter to reflect the changes.
     private void retrieveData() {
         Cursor cursor = databaseHelper.getAll();
         if (cursor == null) {
@@ -174,5 +183,7 @@ public class MainActivity extends AppCompatActivity {
         itemRecyclerView.setAdapter(itemsAdapter);
     }
 
+    //This method initializes the RecyclerView and sets up the adapter (ItemsAdapter) to display the items.
+    //It also specifies a click listener for each item to start the items_details activity when an item is clicked.
 }
 

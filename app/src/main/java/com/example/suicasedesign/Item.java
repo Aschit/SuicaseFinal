@@ -5,23 +5,19 @@ import android.net.Uri;
 import androidx.annotation.Nullable;
 
 public class Item {
-    private int id;
-    private String name, description;
-    private Uri image;
-    private double price;
-    private boolean purchased;
+    private int id;  //n integer field to store the unique identifier for the item.
+    private String name, description; // A string field to store the name and description of the item.
+    private Uri image;  // A field of type Uri to store the image associated with the item.
+    private double price;  //A double field to store the price of the item.
+    private boolean purchased;  //A boolean field to store whether the item has been purchased.
 
 
 
-    public Item() {}
 
-//    public Item(String name, double price, String description, String location, @Nullable Uri image) {
-//        this.id = 0;
-//        this.image = image;
-//        this.name = name;
-//        this.price = price;
-//        this.description = description;
-//    }
+
+    //Each class variable has a getter method (e.g., getId, getName)
+    // to retrieve the value of that variable and a setter method (e.g., setId, setName) to set its value.
+    // These methods allow you to access and modify the attributes of an Item object
 
     public int getId() {
         return id;
@@ -82,4 +78,6 @@ public class Item {
                 ", purchased=" + purchased +
                 '}';
     }
+
+    //t returns a string containing the values of all the item's attributes.
 }
